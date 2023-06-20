@@ -26,9 +26,9 @@ public class Probleme {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String titre;
-/*
+	private String name;
+
 	@OneToMany( fetch = FetchType.LAZY)
-    private List<Solution> solutions;*/
+    private List<Solution> solutions;
 		
 }

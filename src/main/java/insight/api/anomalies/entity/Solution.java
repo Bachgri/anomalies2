@@ -27,7 +27,7 @@ public class Solution {
 	@Id													
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; 
-	private String titre;
+	private String name;
 														
 	/*@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "probleme_id") 

@@ -28,8 +28,9 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	/*@OneToMany()
-	private List<Probleme> problemes;*/
+	@OneToMany()  					 
+	private List<Probleme> problemes;
+	
 	/*@ManyToMany 
 	private List<Device> devices;*/
 	
