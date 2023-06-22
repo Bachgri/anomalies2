@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import insight.api.anomalies.service.ProductService;
 
 @RestController
 @RequestMapping("/Api/products")
+@CrossOrigin(originPatterns = "http://*:*")
 public class ProductController {
 	
 	@Autowired

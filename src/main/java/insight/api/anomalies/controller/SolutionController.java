@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Api/solutions")
+@CrossOrigin(originPatterns = "http://*:*")
 public class SolutionController {
     private final SolutionService solutionService;
 
