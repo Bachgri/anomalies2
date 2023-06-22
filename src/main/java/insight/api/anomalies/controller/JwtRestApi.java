@@ -232,7 +232,7 @@ public class JwtRestApi {
 			return villeservice.delete(v);
 		}
 	/****   Solutions Ops    *****/
-	
+	/*
 		@GetMapping("/Api/solutions")
 		public List<Solution> solutions(){
 			System.err.println("geting all solutions ");
@@ -256,7 +256,7 @@ public class JwtRestApi {
 		public Solution deleteSolution(@PathVariable("id") long v){
 			return solserv.delete(v);
 		}
-	
+	*/
 	/*********  Devices Ops  *********/
 		@GetMapping("/Api/devices")
 		public List<Device> devices(){
@@ -317,7 +317,7 @@ public class JwtRestApi {
 	    }
 		
 	/********************				problems				**********************/
-		@GetMapping("/Api/problemes")
+		/*@GetMapping("/Api/problemes")
 		public List<Probleme> problemes(){
 			System.err.println("problemes ***********************");
 			return prbserv.getAll();
@@ -325,6 +325,7 @@ public class JwtRestApi {
 		
 		@GetMapping("/Api/problemes/{id}")
 		public Probleme probleme(@PathVariable("id") Long id){
+			
 			return prbserv.get(id);
 		}
 		@PostMapping("/Api/problemes")
@@ -337,10 +338,11 @@ public class JwtRestApi {
 		}
 		@DeleteMapping("/Api/problemes/{id}")
 		public Probleme deleteProbleme(@PathVariable("id") Long id){
+			System.err.println("delete probleme : " + id);
 			return prbserv.delete(id);
-		}
+		}*/
 	/**********************²			Product Ops			²*************************/
-
+/*
 		@GetMapping("/Api/products")
 		public List<Product> products(){
 			System.err.println("problemes ***********************");
@@ -361,7 +363,7 @@ public class JwtRestApi {
 		@DeleteMapping("/Api/products/{id}")
 		public Product deleteProduct(@PathVariable("id") Long id){
 			return prdserv.delete(id);
-		}
+		}*/
 		
 	/************************ 		Other operations		 *************************/
 		@PostMapping("/addImgToRec")

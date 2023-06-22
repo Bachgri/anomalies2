@@ -77,7 +77,7 @@ public class ReclamationServiceImpl implements ReclamationService {
 	    try {
 	    	System.err.println("----------------------------------------------------");
 	        con = new FTPClient();
-	        con.connect(FTP_ADDRESS, 21);
+	        con.connect(FTP_ADDRESS, 21);// 
 	        System.out.println("reply code : " + con.getReplyString());
 	        System.err.println("------------------------ server : "+ con.getDefaultPort()  +"----------------------------");
 	        if (FTPReply.isPositiveCompletion(con.getReplyCode())) {

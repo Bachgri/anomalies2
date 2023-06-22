@@ -3,14 +3,15 @@ package insight.api.anomalies.entity;
 import java.security.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
+import javax.persistence.Table; 
 import org.springframework.lang.Nullable;
 
 import lombok.AllArgsConstructor;
@@ -28,7 +29,8 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	@OneToMany()  					 
+	@ManyToMany(cascade = CascadeType.DETACH) 
+	@JoinColumn(name = "product_id") 
 	private List<Probleme> problemes;
 	
 	/*@ManyToMany 

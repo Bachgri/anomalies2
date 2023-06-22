@@ -28,7 +28,7 @@ public class ProblemeServiceImpl implements ProblemeService {
 
 	@Override
 	public Probleme put(Probleme p) { 
-		return null;
+		return problemeRepository.saveAndFlush(p);
 	}
 
 	@Override
