@@ -31,10 +31,15 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+<<<<<<< HEAD
 	@ManyToMany(cascade = CascadeType.DETACH, mappedBy = "products") 
 	//@JoinColumn(name = "product_id") 
 	private List<Probleme> problemes;  
 	
+=======
+	/*@OneToMany()
+	private List<Probleme> problemes;*/
+>>>>>>> parent of 06f4cee (add relations between product probleme and solutions)
 	/*@ManyToMany 
 	private List<Device> devices;*/
 	

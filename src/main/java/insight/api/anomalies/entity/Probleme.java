@@ -35,6 +35,7 @@ import lombok.NoArgsConstructor;
 public class Probleme {   
 										
 	@Id
+<<<<<<< HEAD
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
@@ -50,3 +51,13 @@ public class Probleme {
     @JoinTable(name = "probleme_product")
     private List<Product> products;
 }
+=======
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String titre;
+/*
+	@OneToMany( fetch = FetchType.LAZY)
+    private List<Solution> solutions;*/
+		
+}
+>>>>>>> parent of 06f4cee (add relations between product probleme and solutions)

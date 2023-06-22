@@ -20,6 +20,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor  
 @Table(name = "solutions")
+<<<<<<< HEAD
 public class Solution {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,4 +50,15 @@ public class Solution {
     
     
     
+=======
+public class Solution { 
+	@Id													
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id; 
+	private String titre;
+														
+	/*@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "probleme_id") 
+	private Probleme probleme;*/ 
+>>>>>>> parent of 06f4cee (add relations between product probleme and solutions)
 }
