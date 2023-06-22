@@ -32,10 +32,20 @@ public class Product {
 	private Long id;
 	private String name;
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 	@ManyToMany(cascade = CascadeType.DETACH, mappedBy = "products") 
 	//@JoinColumn(name = "product_id") 
 	private List<Probleme> problemes;  
 	
+=======
+	/*@OneToMany()
+	private List<Probleme> problemes;*/
+>>>>>>> parent of 06f4cee (add relations between product probleme and solutions)
+=======
+	/*@OneToMany()
+	private List<Probleme> problemes;*/
+>>>>>>> parent of 06f4cee (add relations between product probleme and solutions)
 =======
 	/*@OneToMany()
 	private List<Probleme> problemes;*/
