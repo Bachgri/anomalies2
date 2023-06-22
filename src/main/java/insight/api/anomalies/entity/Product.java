@@ -29,8 +29,8 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	@ManyToMany(cascade = CascadeType.DETACH) 
-	@JoinColumn(name = "product_id") 
+	@ManyToMany(cascade = CascadeType.REMOVE) 
+	//@JoinColumn(name = "product_id") 
 	private List<Probleme> problemes;
 	
 	/*@ManyToMany 

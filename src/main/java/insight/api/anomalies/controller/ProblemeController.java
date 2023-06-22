@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import insight.api.anomalies.dto.ProblemeDTO;
 import insight.api.anomalies.dto.SolutionDTO;
 import insight.api.anomalies.entity.Probleme;
+import insight.api.anomalies.entity.Product;
 import insight.api.anomalies.entity.Solution;
 import insight.api.anomalies.service.ProblemeService;
+import insight.api.anomalies.service.ProductService;
 import insight.api.anomalies.service.SolutionService;
 
 @RestController 
@@ -30,6 +32,8 @@ public class ProblemeController {
     private ProblemeService problemeService;
 	@Autowired
 	SolutionService solutionService;
+	@Autowired
+	ProductService productService;
 	
     // Inject ProblemeService through constructor
 
@@ -75,9 +79,21 @@ public class ProblemeController {
 	    
 	    @DeleteMapping("/{id}")
 	    public ResponseEntity<ProblemeDTO> deleteProbleme(@PathVariable Long id) {
-	        Probleme p = problemeService.get(id);
-	        ProblemeDTO pp = mapProblemeToDTO(p); //new ProblemeDTO(p.getId(), p.getName(), p.getSolutions());
-	        problemeService.delete(id);
+	        Probleme p = problemeService.get(id),
+	        		ptd = problemeService.get(id);
+	        		;
+    		ProblemeDTO pp = mapProblemeToDTO(p);
+    		System.err.println("you want delete probleme " + id +" = " + ptd);
+    		ptd.setSolutions(new ArrayList());
+    		System.err.println("Deleting solutions for probleme : " + ptd);
+	        for (Product product : ptd.getProducts()) {
+				productService.deleteProboleme( product.getId(), id);
+			}
+    		
+    		System.err.println("saving new probleme version : " + problemeService.post(ptd));
+	        
+	         //new ProblemeDTO(p.getId(), p.getName(), p.getSolutions());
+	        System.err.println("deleted : " + problemeService.delete(id));
 	        return ResponseEntity.ok(pp);
 	    }
 
@@ -130,15 +146,15 @@ public class ProblemeController {
 	        problemeDTO.setName(probleme.getName());
 
 	        // Fetch and map the solutions (if required)
-	        //if(probleme.getSolutions() != null) {
+	        if(probleme.getSolutions() != null) {
 	        	List<SolutionDTO> solutionDTOs = probleme.getSolutions()
 	        			.stream()
 	        			.map(this::mapSolutionToDTO)
 	        			.collect(Collectors.toList());
 	        	problemeDTO.setSolutions(solutionDTOs);
 	        	
-	        //}
-	        		//probleme.setSolutions(ArrayList());
+	        }else
+	        	probleme.setSolutions(new ArrayList());
 
 	        return problemeDTO;
 	    }

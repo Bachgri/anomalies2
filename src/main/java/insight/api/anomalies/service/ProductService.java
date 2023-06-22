@@ -10,4 +10,5 @@ public interface ProductService {
 	public Product put(Product p);
 	public Product get(Long id);
 	public Product delete(long p);
+	public void deleteProboleme(long pid, long id);
 }

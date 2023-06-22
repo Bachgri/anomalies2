@@ -16,7 +16,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade; 
+import org.hibernate.annotations.Cascade;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,6 +41,9 @@ public class Probleme {
    /* @JoinTable(name = "probleme_solution",
             joinColumns = @JoinColumn(name = "probleme_id"),
             inverseJoinColumns = @JoinColumn(name = "solution_id"))*/
-    private List<Solution> solutions;			
+    private List<Solution> solutions;
     
+    //@JsonProperty(access = Access.WRITE_ONLY) 
+    @ManyToMany
+    private List<Product> products;
 }
