@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,9 +25,9 @@ public class Solution {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name; 
-
-    @ManyToMany(mappedBy = "solutions")
-    private List<Probleme> problemes;
+    
+    /*@ManyToMany(mappedBy = "solutions",cascade = CascadeType.DETACH)
+    private List<Probleme> problemes;*/
 
 	public Long getId() {
 		return id;
@@ -44,13 +45,7 @@ public class Solution {
 		this.name = name;
 	}
 
-	public List<Probleme> getProblemes() {
-		return problemes;
-	}
-
-	public void setProblemes(List<Probleme> problemes) {
-		this.problemes = problemes;
-	}
+	
     
     
     

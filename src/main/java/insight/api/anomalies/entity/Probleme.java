@@ -34,10 +34,10 @@ public class Probleme {
     private Long id;
     private String name;
     
-    @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(name = "probleme_solution",
+    @ManyToMany(cascade = CascadeType.DETACH)
+   /* @JoinTable(name = "probleme_solution",
             joinColumns = @JoinColumn(name = "probleme_id"),
-            inverseJoinColumns = @JoinColumn(name = "solution_id"))
+            inverseJoinColumns = @JoinColumn(name = "solution_id"))*/
     private List<Solution> solutions;			
     
 }

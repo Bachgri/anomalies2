@@ -1,5 +1,6 @@
 package insight.api.anomalies.controller;
 
+import insight.api.anomalies.dto.ProblemeDTO;
 import insight.api.anomalies.dto.SolutionDTO;
 import insight.api.anomalies.entity.Solution;
 import insight.api.anomalies.service.SolutionService;
@@ -61,9 +62,11 @@ public class SolutionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteSolution(@PathVariable Long id) {
+    public ResponseEntity<SolutionDTO> deleteSolution(@PathVariable Long id) {
+    	SolutionDTO pdto = convertToDTO(solutionService.get(id));
+    	System.err.println("delete " + pdto);
         solutionService.delete(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(pdto);
     }
 
     private SolutionDTO convertToDTO(Solution solution) {
