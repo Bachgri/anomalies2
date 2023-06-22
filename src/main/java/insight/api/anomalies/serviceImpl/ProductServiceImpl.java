@@ -29,6 +29,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product put(Product p) {
+		System.out.println("put product :" + p);
 		return productRepository.save(p);
 	}
 

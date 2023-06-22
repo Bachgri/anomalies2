@@ -25,6 +25,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -40,10 +42,11 @@ public class Probleme {
     @ManyToMany(cascade = CascadeType.DETACH)
    /* @JoinTable(name = "probleme_solution",
             joinColumns = @JoinColumn(name = "probleme_id"),
-            inverseJoinColumns = @JoinColumn(name = "solution_id"))*/
+            inverseJoinColumns = @JoinColumn(name = "solution_id"))/*/
     private List<Solution> solutions;
     
     //@JsonProperty(access = Access.WRITE_ONLY) 
     @ManyToMany
+    @JoinTable(name = "probleme_product")
     private List<Product> products;
 }

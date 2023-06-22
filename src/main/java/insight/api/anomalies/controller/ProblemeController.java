@@ -61,7 +61,7 @@ public class ProblemeController {
 	        List<Solution> updatedSolutions = new ArrayList<>();
 	        System.err.println("solutions to update : ");
 	        for (Solution solution : solutions) {
-	            long solutionId = solution.getId();
+	            long solutionId = solution.getId(); 
 	            System.err.println("solution " + solutionId);
 	            Solution fetchedSolution = solutionService.get(solutionId);
 	            updatedSolutions.add(fetchedSolution);
@@ -87,10 +87,10 @@ public class ProblemeController {
     		ProblemeDTO pp = mapProblemeToDTO(p);
     		System.err.println("you want delete probleme " + id +" = " + ptd);
     		ptd.setSolutions(new ArrayList());
-    		System.err.println("Deleting solutions for probleme : " + ptd);
-	        for (Product product : ptd.getProducts()) {
+	        /*for (Product product : ptd.getProducts()) {
 				productService.deleteProboleme( product.getId(), id);
-			}
+			}*/
+	        System.err.println("Deleting solutions for probleme : " + ptd);
     		
     		System.err.println("saving new probleme version : " + problemeService.post(ptd));
 	        
